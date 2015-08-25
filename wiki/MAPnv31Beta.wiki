@@ -1,0 +1,43 @@
+MAPn v3.1 Beta 一键安装包测试版发布
+
+MAPn 是一个用于 Linux 系统的自动编译环境程序包，具有 MAP (LAMP) & MAPn (LNAMP) 模式；
+
+MAPn 是以 MySQL + Apache + PHP + Nginx (可选) 的安装顺序命名；
+
+MAPn 默认为 MAP 模式，选择 MAP+n 模式将以 Nginx 作为服务器前端运行，Apache 作为服务器后端运行。
+
+ 
+
+MAPn v3.1 测试版更新说明：
+
+此版本更新较大，模式与旧版本不同，因此跳过 3.0 正式版，进入 3.1 版本；
+
+新版本默认安装 MySQL + Apache + PHP ，Nginx 为可选模式，MAP / MAP+n 模式可自由切换；
+
+新版本可自定义 MySQL / Apache / PHP / Nginx / eAccelerator / phpMyAdmin 等版本号；
+
+新版本增加对 Debian / Ubuntu 系统的支持；
+
+更多细节上的修正。
+
+ 
+
+MAPn v3.1 测试版使用说明：
+
+ wget -c http://sourceforge.net/projects/mapn/files/beta/mapn_v3.1_full_beta.tar.gz 
+
+(下载版则为： wget -c http://sourceforge.net/projects/mapn/files/beta/mapn_v3.1_beta.tar.gz  )
+
+ tar -zxvf mapn_v3.1_full_beta.tar.gz 
+
+(下载版则为： tar -zxvf mapn_v3.1_beta.tar.gz  )
+
+ cd notago_mapn 
+
+ ./centos.sh  (适用于CentOS/Redhat系统)
+
+ ./debian.sh  (适用于Debian/Ubuntu系统)
+
+(假设您的系统为CentOS，而您执行了Debian系统的脚本，MAPn将会自动跳转到CentOS系统的脚本，所以您可以放心使用)
+
+欢迎您加入 MAPn QQ群：96534155 

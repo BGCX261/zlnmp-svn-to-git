@@ -1,0 +1,160 @@
+MAPn 是一个用于 Linux(CentOS/RedHat/Debian/Ubuntu) 系统的服务环境自动编译程序，具有 MAP(lamp) & MAPn(lnamp) 模式并可随意切换；
+
+MAPn 是以 MySQL + Apache + PHP + Nginx(可选) 的安装顺序命名；
+
+MAPn 默认安装为 MAP 模式，选择 MAP+n 模式将以 Nginx 作为服务器前端运行，Apache 作为服务器后端运行。
+
+版本：v3.1 正式版  |  发布日期：2011-10-29 (祝自己生日快乐~)
+
+
+【包含程序】
+
+默认安装：MySQL、Apache、PHP、phpMyAdmin
+
+可选安装：Nginx、eAccelerator、Zend Optimizer、ionCube、PureFTPd、Suhosin、Memcached、google-perftools (可选安装程序可在 MAPn 主安装完成后于 extras.sh 选择安装)
+
+
+【附加程序安装说明】
+
+当您选择安装 Nginx，则是以 MAP+n 模式运行，当您卸载 Nginx，则是以 MAP 模式运行，切换模式时 MAPn 会自动处理所有有关配置文件；
+
+可选安装程序可在 extras.sh 选择安装，当您安装某个程序后则其不在安装列表显示，转而显示在 unextras.sh 卸载脚本中，如果没有安装的程序则不会在 unextras.sh 中显示，反之，可选程序卸载后会恢复在 extras.sh 列表显示；
+
+附加(可选)程序可无限制安装与卸载。
+
+
+【自定义版本说明】
+
+默认版本号为 MySQL-5.1.59、Apache-2.2.21、PHP-5.2.17、Nginx-1.0.8、eAccelerator-0.9.5.3、phpMyAdmin-3.4.7、Memcached-1.4.7；
+
+如需安装其它版本号程序，可在安装时选择自定义版本号，注意正确填写版本号格式并确认其版本是存在的(确认链接)；
+
+关于 PHP5.3 系列版本，MAPn 会自动识别您输入的版本号，如果为 PHP5.3 系列版本号，则以 PHP5.3 系列版本的编译方式编译，并在后续的 Zend Optimizer 将会自动安装为 Zend Guard Loader，同因 PHP5.3 系列版本不兼容 eAccelerator0.9.5 系列版本，所以当您选择了 PHP5.3 系列版本，MAPn 则自动将 eAccelerator 的自定义版本隐藏并安装为 0.9.6.1 版本；
+
+MySQL 暂不支持 5.5 系列；
+
+Apache 暂只支持 2.2 系列；
+
+更多程序版本支持将在 MAPn 后续版本支持。
+
+
+【升级说明】
+
+MAPn 3.1 正式版仅支持由 MAPn 3.1 测试版升级，后续版本也将仅支持由 MAPn 3.1 测试版与后续版本升级，直接运行主安装，MAPn 会提醒您是否进行升级，升级时 MAPn 会自动处理数据库等配置文件，但仍建议您升级前做好数据备份；
+
+运行 upgrade.sh 可进行 MySQL、Apache、PHP、Nginx 升级/降级，由于考虑到降级等原因，此脚本的原理是将您选择的程序卸载再进行安装，MAPn 会自动处理您的数据，但仍建议您升级前做好数据备份；
+
+
+【更新说明】
+
+增加 FTP(PureFTPd) 支持，配有 FTP 用户增加、修改、删除等操作管理脚本；
+
+增加 MAPn 主升级功能；
+
+增加 MySQL、Apache、PHP、Nginx 升降级功能；
+
+增加附加程序安装与卸载脚本；
+
+增加 Memcached、google-perftools 程序为可选安装；
+
+增加 PHP5.3 系列版本支持；
+
+修正部分系统模板获取不到主机名导致 Apache 无法启动的问题；
+
+修正部分 Ubuntu11 系统模板安装 PHP 错误的问题；
+
+修正因 PHP 编译参数导致个别 PHP 代码不兼容的问题；
+
+修改虚拟主机配置文件路径为 /usr/local/mapn/vhosts/；
+
+修改 Suhosin(PHP守护神) 为可选安装；
+
+优化 MAP 与 MAP+n 模式的完美切换；
+
+优化添加虚拟机脚本的处理方式；
+
+优化安装完成 MySQL 后删除多余的空密码账户；
+
+等等诸多优化更新。
+
+
+【安装说明】
+
+快速开始安装(自动版)：
+
+
+ wget http://www.notago.com/mapn.sh;sh mapn.sh 
+
+
+执行后选择 1 为下载版，选择 2 为完整版(推荐)
+
+
+手动版(与自动版任选其一)：
+
+下载版：
+
+wget http://sourceforge.net/projects/mapn/files/stable/ngro-mapn-3.1.tar.gz (下载安装文件)
+
+tar -zxvf ngro-mapn-3.1.tar.gz (解压安装文件)
+
+cd ngro-mapn-3.1/ (进入工作目录)
+
+./centos.sh (执行安装，适用于 CentOS/RedHat )
+
+./debian.sh (执行安装，适用于 Debian/Ubuntu )
+
+ 
+
+
+完整版：
+
+wget -c http://sourceforge.net/projects/mapn/files/stable/ngro-mapn-3.1-full.tar.gz
+
+tar -zxvf ngro-mapn-3.1-full.tar.gz
+
+cd ngro-mapn-3.1/
+
+./centos.sh
+
+./debian.sh
+
+ 
+
+ 
+
+下载提示：
+
+MAPn 项目主要托管于 SourceForge.net，部分中国内服务商屏蔽了 SourceForge.net，导致无法下载等问题，当您的服务器访问不了 SourceForge，请下载托管于谷歌项目的完整版，或者下载 Notago.com 本地完整版；
+
+Google: wget -c http://mapn.googlecode.com/files/ngro-mapn-3.1-full.tar.gz
+Notago: wget -c http://download.notago.com/mapn/ngro-mapn-3.1-full.tar.gz
+
+
+【使用说明】
+
+主安装完成后，如您需安装更多程序支持，可执行 extras.sh 选择进行安装，如需卸载可选程序，可执行 unextras.sh 选择进行卸载；
+
+主安装完成后，如您需升降级 MySQL、Apache、PHP、Nginx，可执行 upgrade.sh 选择进行升降级；
+
+状态管理：启动：mapn start | 停止：mapn stop | 重启：mapn restart | 强制停止：mapn kill ；
+
+虚拟主机管理：添加：mapn adv | 删除：mapn rmv ；
+
+FTP 管理程序：mapn ftp (具有启动、停止、重启，添加用户、修改用户、删除用户)；
+
+如您需重新安装 MAPn，可直接执行主安装(centos.sh|debian.sh)，MAPn 会询问您是否升级，选择 Y/y 即可；
+
+如您需卸载 MAPn，可执行 uninstall.sh 进行彻底卸载，请特别注意先备份好您的数据。
+
+
+【特别说明】
+
+MAPn 开放源代码，无任何加密，无任何后门，所有程序均采用官方源文件，您可查询 MD5 值进行对比；
+
+MAPn 所有选单的 ( Y/n ) 均不区分大小写，输入大小写都可；
+
+官方社区支持： http://www.notago.com
+
+官方博客支持： http://www.ngro.org
+
+QQ交流群： 96534155

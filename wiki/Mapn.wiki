@@ -1,0 +1,118 @@
+<<<<<  Mapn Version 3.0 安装程序阅读  >>>>> 
+
+
+wget http://mapn.googlecode.com/files/mapn_beta.sh;sh mapn_beta.sh 
+
+http://sourceforge.net/projects/mapn/files/Mapn_Full_Ver_3_0.tar.gz
+ 
+Mapn 是一个用于 Linux 系统的自动编译环境程序包 
+
+Mapn 是以 MySQL + Apache + PHP + Nginx 的安装顺序命名 
+
+Mapn 是以 Nginx 作为服务器前端运行， Apache 作为服务器后端运行 
+
+ 
+
+
+程序版本信息： 
+
+MySQL: 5.1.56     Apache: 2.2.17     PHP: 5.2.17     Nginx: 0.8.54 
+
+Memcache: 2.2.6     eAccelerator: 0.9.5.3     ZendOptimizer: 3.3.9 
+
+phpMyAdmin: 3.3.10     Suhosin: 0.9.32.1     ionCube: 4.0.5 
+
+... And so on. 
+
+ 
+
+安装 Mapn ： 
+
+建议安装前运行 screen -S mapn 
+
+（当网络断线或者关闭电脑，运行 screen -r mapn 即可回到之前窗口。注：运行 screen 是在服务器运行的，也就是你运行 screen 运行安装 Mapn 后关闭窗口，Mapn 仍会继续安装，当你想退出 screen 窗口，在 screen 窗口输入 exit 即退出。如未安装 screen 服务，运行 yum -y install screen* 安装） 
+
+
+ 
+解压： 
+
+下载版： tar zxvf Mapn_Ver_3_0.tar.gz 
+
+完整版： tar zxvf Mapn_Full_Ver_3_0.tar.gz 
+
+
+进入 Mapn 目录： 
+
+下载版： cd Mapn_Ver_3_0/ 
+
+完整版： cd Mapn_Full_Ver_3_0/ 
+
+ 
+执行安装： 
+
+ ./Installer.sh 
+
+ 
+输入想设置的 MySQL root 密码（留空则为默认 root ），即开始自动编译安装 
+
+
+ 
+
+可选安装（PureFTPd）： 
+
+进入 Mapn 目录： 
+
+下载版： cd Mapn_Ver_3_0/ 
+
+完整版： cd Mapn_Full_Ver_3_0/ 
+
+
+执行安装： 
+
+ ./FtpInstaller.sh 
+
+ 
+安装完成后用浏览器访问 http://您的IP或域名/ftp/install.php 安装 User manager for PureFTPd 
+
+请参考 http://www.ngro.org/mapn/mapn-install-pureftpd.html 安装 
+
+ 
+
+Mapn 状态管理： /mapn { start | stop | reload | restart | kill | status } 
+
+PureFTPd 状态管理： /root/pureftpd { start | stop | restart | kill | status } 
+
+虚拟主机管理： /mapn { 1 | 2 | 3 } 
+
+ 
+
+提示:  /mapn 1  =  /root/virtualhost.sh  |  添加虚拟主机 
+
+提示:  /mapn 2  =  /root/virtualhostwithssl.sh  |  添加支持 SSL 的虚拟主机 
+
+提示:  /mapn 3  =  /root/removevirtualhost.sh  |  删除虚拟主机 
+
+ 
+
+Mapn 相关目录： 
+
+MySQL :   /usr/local/mysql 
+
+Apache :   /usr/local/apache 
+
+PHP :     /usr/local/php 
+
+Nginx :   /usr/local/nginx 
+
+网站主目录 :    /home/wwwroot 
+
+
+注：目前 Mapn Version 3.0 仅对 CentOS/RedHat 32/64bit 支持，更多系统版本将陆续推出
+
+
+官方网站： http://www.ngro.org 
+
+NGRO.ORGanization 感谢您的使用！
+
+
+备份！！！
